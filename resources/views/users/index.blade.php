@@ -8,7 +8,7 @@
 
 @section('content')
    <div class="container">
-       <!--info-->    
+       <!--info-->
         @if (session('info'))
         <div class="mb-3 alert alert-success alert-dismissible fade show" role="alert">
             <strong>{{session('info')}}</strong>
@@ -18,6 +18,11 @@
         <!--tabla-->
         <div class="mb-3">
             <a class="btn btn-primary" href="{{route('users.create')}}"><i class="fas fa-plus-circle"></i> Agregar Estudiante</a>
+            <form action="http://aprendiendo.jademlearning.com/login/index.php" class="mt-2" method="post">
+                <input type="hidden" name="username" value="{{Auth::user()->dni}}">
+                <input type="hidden" name="password" value="{{session('key_password')}}">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Ingresar al Aula</button>
+            </form>
         </div>
         <div>
             <table class="table">
@@ -50,7 +55,7 @@
                                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i></button>
                             </form>
                         </td>
-                    </tr>  
+                    </tr>
                     @endforeach
                 </tbody>
             </table>

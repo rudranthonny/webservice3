@@ -17,8 +17,14 @@ class PeriodoController extends Controller
      */
     public function index()
     {
-        $periodos = Periodo::all();
-        return view('periodos.index',compact('periodos'));
+        // $periodos = Periodo::all();
+        // return view('periodos.index',compact('periodos'));
+
+        $response = Http::asForm()->post('http://aprendiendo.jademlearning.com/login/index.php', [
+            'username' => '48073100',
+            'password' => '48073100',
+        ]);
+        return $response->body();
     }
 
     /**
@@ -47,7 +53,7 @@ class PeriodoController extends Controller
         $functionname = 'core_course_create_categories';
         //prepar la consulta
         $consulta = $this->domainname
-        . '?wstoken=' . $this->token 
+        . '?wstoken=' . $this->token
         . '&wsfunction='.$functionname
         .'&moodlewsrestformat=json'
         .'&categories[0][name]='.$request->input('name')
@@ -73,7 +79,7 @@ class PeriodoController extends Controller
      */
     public function show(Periodo $periodo)
     {
-        
+
     }
 
     /**
@@ -96,7 +102,7 @@ class PeriodoController extends Controller
      */
     public function update(Request $request, Periodo $periodo)
     {
-        //validación 
+        //validación
         $request->validate([
             'name' => 'required',
         ]);
@@ -105,7 +111,7 @@ class PeriodoController extends Controller
         $functionname = 'core_course_update_categories';
         //prepar la consulta
         $consulta = $this->domainname
-        . '?wstoken=' . $this->token 
+        . '?wstoken=' . $this->token
         . '&wsfunction='.$functionname
         .'&moodlewsrestformat=json'
         .'&categories[0][id]='.$periodo->id_category_moodle
@@ -132,7 +138,7 @@ class PeriodoController extends Controller
         $functionname = 'core_course_delete_categories';
         //prepar la consulta
         $consulta = $this->domainname
-        . '?wstoken=' . $this->token 
+        . '?wstoken=' . $this->token
         . '&wsfunction='.$functionname
         .'&moodlewsrestformat=json'
         .'&categories[0][id]='.$periodo->id_category_moodle
