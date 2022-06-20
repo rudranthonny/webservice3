@@ -70,12 +70,12 @@ class User extends Authenticatable
     //okey
     public function suspender(User $user){
         //declarar variables
-        $this->token = '3965c3e3228fac0de59b88b77c2625fb';
-        $this->domainname = 'http://aprendiendo.jademlearning.com/webservice/rest/server.php';
+        $token = '3965c3e3228fac0de59b88b77c2625fb';
+        $domainname = 'http://aprendiendo.jademlearning.com/webservice/rest/server.php';
         $functionname = 'core_user_update_users';
         //preparar consulta
-        $consulta = $this->domainname. '/webservice/rest/server.php'
-        . '?wstoken=' . $this->token 
+        $consulta = $domainname. '/webservice/rest/server.php'
+        . '?wstoken=' . $token 
         . '&wsfunction='.$functionname
         .'&moodlewsrestformat=json&users[0][id]='.$user->id_user_moodle.
         '&users[0][suspended]='.$user->estado;

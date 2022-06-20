@@ -37,6 +37,7 @@ Route::middleware([
 
     Route::resource('users', UserController::class)->names('users');
     Route::get('user/{user}/suspender',[UserController::class,'suspender'])->name('user.suspender');
+    Route::get('user/ingresarmoodle',[UserController::class,'ingresar_moodle'])->name('user.ingresar_moodle');
 
     Route::resource('periodos', PeriodoController::class)->names('periodos');
     Route::resource('plantillas', PlantillaController::class)->names('plantillas');

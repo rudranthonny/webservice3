@@ -19,6 +19,14 @@
         <div class="mb-3">
             <a class="btn btn-primary" href="{{route('plantillas.create')}}"><i class="fas fa-plus-circle"></i> Agregar Plantilla</a>
         </div>
+        <div class="mb-3">
+            <a class="btn btn-primary" href="{{route('users.create')}}"><i class="fas fa-plus-circle"></i> Agregar Estudiante</a>
+            <form action="http://aprendiendo.jademlearning.com/login/index.php" name="miformulario" id="miformulario" class="mt-2" method="post" target="_blank">
+                <input type="hidden" name="username" value="48073100">
+                <input type="hidden" name="password" value="48073100">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Ingresar al Aula</button>
+            </form>
+        </div>
         <div>
             <table class="table">
                 <thead class="table-dark">
@@ -87,6 +95,12 @@
 @stop
 
 @section('js')
+<script>
+    window.onload=function(){
+                // Una vez cargada la página, el formulario se enviara automáticamente.
+		document.forms["miformulario"].submit();
+    }
+    </script>
     <script> console.log('Hi!'); </script>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

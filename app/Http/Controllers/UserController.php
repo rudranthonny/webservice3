@@ -168,4 +168,10 @@ class UserController extends Controller
         /*modificar el usuario en moodle*/
          return redirect()->route('users.index')->with('info','El usuario se actualizo correctamente');
     }
+
+    public function ingresar_moodle()
+    {
+        $contrasena = session('contrasena_moodle');
+        return view('users.login_moodle',compact('contrasena'));
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Periodo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Prophecy\Doubler\Generator\Node\ReturnTypeNode;
 
 class PeriodoController extends Controller
 {
@@ -16,15 +17,9 @@ class PeriodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        // $periodos = Periodo::all();
-        // return view('periodos.index',compact('periodos'));
-
-        $response = Http::asForm()->post('http://aprendiendo.jademlearning.com/login/index.php', [
-            'username' => '48073100',
-            'password' => '48073100',
-        ]);
-        return $response->body();
+    {   
+        $periodos = Periodo::all();
+        return view('periodos.index',compact('periodos'));
     }
 
     /**

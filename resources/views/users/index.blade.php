@@ -18,11 +18,7 @@
         <!--tabla-->
         <div class="mb-3">
             <a class="btn btn-primary" href="{{route('users.create')}}"><i class="fas fa-plus-circle"></i> Agregar Estudiante</a>
-            <form action="http://aprendiendo.jademlearning.com/login/index.php" class="mt-2" method="post">
-                <input type="hidden" name="username" value="{{Auth::user()->dni}}">
-                <input type="hidden" name="password" value="{{session('key_password')}}">
-                <button type="submit" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Ingresar al Aula</button>
-            </form>
+            <a class="btn btn-secondary" target="_blank" href="{{route('user.ingresar_moodle')}}"><i class="fas fa-plus-circle"></i>Ingresar a Moodle</a>
         </div>
         <div>
             <table class="table">
